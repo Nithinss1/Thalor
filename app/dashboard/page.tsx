@@ -72,8 +72,8 @@ export default function DashboardPage() {
   const carbonSaved = totalGifts * 2.5 // 2.5 kg CO₂ per gift
 
   // Calculate cart value
-  const cartValue = cart.reduce((sum, item) => sum + item.price * item.quantity, 0)
-  const cartItems = cart.reduce((sum, item) => sum + item.quantity, 0)
+  const cartValue = cart.reduce((sum, cartItem) => sum + cartItem.item.price * cartItem.quantity, 0)
+  const cartItems = cart.reduce((sum, cartItem) => sum + cartItem.quantity, 0)
 
   const getStatusIcon = (status: string) => {
     switch (status) {
@@ -289,7 +289,7 @@ export default function DashboardPage() {
                               From {gift.sender_name} • Budget: ${gift.budget}
                             </p>
                             <p className="text-xs text-gray-500 mt-1">
-                              Sent {format(gift.created_at, 'MMM d, yyyy')}
+                              Sent {format(new Date(gift.created_at), 'MMM d, yyyy')}
                             </p>
                           </div>
                         </div>
