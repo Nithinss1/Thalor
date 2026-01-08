@@ -47,7 +47,17 @@ export default function DashboardPage() {
       setSentGifts(JSON.parse(stored))
     } else {
       // Initialize with mock data if no stored gifts
-      setSentGifts(mockGifts)
+      // Convert mockGifts to SentGift format
+      const convertedGifts: SentGift[] = mockGifts.map(gift => ({
+        id: gift.id,
+        recipient_email: gift.recipient_email,
+        sender_name: gift.sender_name,
+        budget: gift.budget,
+        status: gift.status,
+        created_at: gift.created_at.toISOString(),
+        gift_type: gift.gift_type
+      }))
+      setSentGifts(convertedGifts)
     }
   }, [])
 
