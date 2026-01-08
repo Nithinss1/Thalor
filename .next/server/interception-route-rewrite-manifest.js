@@ -1,0 +1,1 @@
+self.__INTERCEPTION_ROUTE_REWRITE_MANIFEST="[{\"source\":\"/gift/:id\",\"destination\":\"/(.)gift/:id\",\"has\":[{\"type\":\"header\",\"key\":\"next-url\",\"value\":\"(?:\\\\/(.*))?[\\\\/#\\\\?]?\"}],\"regex\":\"^\\\\/gift(?:\\\\/([^\\\\/]+?))(?:\\\\/)?$\"}]"
